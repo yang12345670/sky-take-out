@@ -19,6 +19,9 @@ public class DishDTO implements Serializable {
     private BigDecimal price;
     //图片
     private String image;
+    //排序
+    private Integer sort;
+
     //描述信息
     private String description;
     //0 停售 1 起售

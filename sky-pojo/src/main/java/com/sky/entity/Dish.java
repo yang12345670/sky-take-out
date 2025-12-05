@@ -1,50 +1,48 @@
 package com.sky.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-/**
- * 菜品
- */
 @Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
 public class Dish implements Serializable {
-
-    private static final long serialVersionUID = 1L;
 
     private Long id;
 
-    //菜品名称
+    // 菜品名称
     private String name;
 
-    //菜品分类id
+    // 分类id
     private Long categoryId;
 
-    //菜品价格
+    // 价格
     private BigDecimal price;
 
-    //图片
+    // 菜品编码
+    private String code;
+
+    // 图片
     private String image;
 
-    //描述信息
+    // 描述信息
     private String description;
 
-    //0 停售 1 起售
+    // 状态 1 启售 0 停售
     private Integer status;
 
+    private Integer sort;
+
+    // 创建时间
     private LocalDateTime createTime;
 
+    // 修改时间
     private LocalDateTime updateTime;
 
+    // 创建人id
     private Long createUser;
 
+    // 修改人id
     private Long updateUser;
-
 }

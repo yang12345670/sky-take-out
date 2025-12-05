@@ -6,3 +6,14 @@ sky:
     database: sky_take_out
     username: root
     password: 12345678
+
+  alioss:
+    endpoint: http://127.0.0.1:9000   # MinIO 服务地址（带 http）
+    access-key-id: minioadmin        # MinIO 登录用户名
+    access-key-secret: minioadmin    # MinIO 登录密码
+    bucket-name: sky-itcast          # 你在 MinIO 里创建的 bucket 名
+
+  redis:
+    host: localhost
+    port: 6379
+    database: 0
