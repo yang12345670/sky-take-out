@@ -24,7 +24,7 @@
       icon="iconfont icon-download"
       class="right-el-button"
       @click="handleExport"
-      >数据导出</el-button
+      >Data export</el-button
     >
   </div>
 </template>
@@ -42,7 +42,7 @@ export default class extends Vue {
 
   nowIndex = 2 - 1
   value = []
-  tabsParam = ['昨日', '近7日', '近30日', '本周', '本月']
+  tabsParam = ['Yesterday', '1W', '1M', 'WTD', 'MTD']
   @Watch('flag')
   getNowIndex(val) {
     this.nowIndex = val

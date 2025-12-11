@@ -1,11 +1,11 @@
 <template>
   <div class="container">
-    <h2 class="homeTitle">用户统计</h2>
+    <h2 class="homeTitle">User statistics</h2>
     <div class="charBox">
       <div id="usermain" style="width: 100%; height: 320px"></div>
       <ul class="orderListLine user">
-        <li class="one"><span></span>用户总量（个）</li>
-        <li class="three"><span></span>新增用户（个）</li>
+        <li class="one"><span></span>Total users</li>
+        <li class="three"><span></span>New users</li>
       </ul>
     </div>
   </div>
@@ -92,7 +92,7 @@ export default class extends Vue {
       ],
       series: [
         {
-          name: '用户总量',
+          name: 'Total ',
           type: 'line',
           // stack: 'Total',
           smooth: false, //否平滑曲线
@@ -116,7 +116,7 @@ export default class extends Vue {
           data: this.userdata.totalUserList,
         },
         {
-          name: '新增用户',
+          name: 'New',
           type: 'line',
           // stack: 'Total',
           smooth: false, //否平滑曲线

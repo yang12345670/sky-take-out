@@ -400,7 +400,7 @@ export default class extends Vue {
               }
             })
             .catch(err => {
-              this.$message.error('请求出错了：' + err.message)
+              this.$message.error('Error:' + err.message)
             })
         }
       })

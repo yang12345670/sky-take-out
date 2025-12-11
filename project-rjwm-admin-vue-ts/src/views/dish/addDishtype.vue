@@ -335,18 +335,18 @@ export default class extends Vue {
   private getFlavorListHand() {
     // flavor flavorData
     this.dishFlavorsData = [
-      { name: '甜味', value: ['无糖', '少糖', '半糖', '多糖', '全糖'] },
-      { name: '温度', value: ['热饮', '常温', '去冰', '少冰', '多冰'] },
-      { name: '忌口', value: ['不要葱', '不要蒜', '不要香菜', '不要辣'] },
-      { name: '辣度', value: ['不辣', '微辣', '中辣', '重辣'] }
+      { name: 'Sweetness', value: ['Sugar-Free', 'Less Sugar', 'Half Sugar', 'More Sugar', 'Full Sugar'] },
+      { name: 'Temperature', value: ['Hot', 'Room Temp', 'No Ice', 'Less Ice', 'Extra Ice'] },
+      { name: 'Dietary exclusions', value: ['No Onion', 'No Garlic', 'No Cilantro', 'No Spice'] },
+      { name: 'Spice level', value: ['Not Spicy', 'Mild', 'Medium', 'Hot'] }
     ]
   }
 
   private submitForm(formName: any, st: any) {
-    ;(this.$refs[formName] as any).validate((valid: any) => {
+    (this.$refs[formName] as any).validate((valid: any) => {
       console.log(valid, 'valid')
       if (valid) {
-        if (!this.ruleForm.image) return this.$message.error('菜品图片不能为空')
+        if (!this.ruleForm.image) return this.$message.error('Image can\'t be null.')
         let params: any = { ...this.ruleForm }
         // params.flavors = this.dishFlavors
         params.status =
@@ -363,7 +363,7 @@ export default class extends Vue {
           addDish(params)
             .then(res => {
               if (res.data.code === 1) {
-                this.$message.success('菜品添加成功！')
+                this.$message.success('Dish added successfully!')
                 if (!st) {
                   this.$router.push({ path: '/dish' })
                 } else {
@@ -388,7 +388,7 @@ export default class extends Vue {
               }
             })
             .catch(err => {
-              this.$message.error('请求出错了：' + err.message)
+              this.$message.error('Error:' + err.message)
             })
         } else {
           delete params.createTime
@@ -397,7 +397,7 @@ export default class extends Vue {
             .then(res => {
               if (res && res.data && res.data.code === 1) {
                 this.$router.push({ path: '/dish' })
-                this.$message.success('菜品修改成功！')
+                this.$message.success('Dish modified successfully!')
               } else {
                 this.$message.error(res.data.desc || res.data.msg)
               }
@@ -409,7 +409,7 @@ export default class extends Vue {
               // }
             })
             .catch(err => {
-              this.$message.error('请求出错了：' + err.message)
+              this.$message.error('Error:' + err.message)
             })
         }
       } else {

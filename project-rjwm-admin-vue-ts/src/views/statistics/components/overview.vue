@@ -1,10 +1,10 @@
 <template>
   <div class="container">
-    <h2 class="homeTitle">数据概览</h2>
+    <h2 class="homeTitle">Overview</h2>
     <div class="overviewBox">
       <ul>
         <li>
-          <p class="tit">营业额</p>
+          <p class="tit">Turnover</p>
           <p class="num">{{ overviewData.turnover }}</p>
           <p class="tip">
             同比增长<span v-if="overviewData.turnoverGrowth">

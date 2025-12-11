@@ -228,27 +228,27 @@ export default class extends Vue {
 
   // 删除
   private deleteHandle(type: string, id: any) {
-    if (type === '批量' && id === null) {
+    if (type === 'Batch' && id === null) {
       if (this.checkList.length === 0) {
-        return this.$message.error('请选择删除对象')
+        return this.$message.error('Please select the items to be deleted.')
       }
     }
-    this.$confirm('确认删除该菜品, 是否继续?', '确定删除', {
-      confirmButtonText: '删除',
-      cancelButtonText: '取消',
+    this.$confirm('Confirm deletion?', 'Confirm', {
+      confirmButtonText: 'Delete',
+      cancelButtonText: 'Cancel',
       type: 'warning'
     }).then(() => {
-      deleteDish(type === '批量' ? this.checkList.join(',') : id)
+      deleteDish(type === 'Batch' ? this.checkList.join(',') : id)
         .then(res => {
           if (res && res.data && res.data.code === 1) {
-            this.$message.success('删除成功！')
+            this.$message.success('Deleted Successfully!')
             this.init()
           } else {
             this.$message.error(res.data.msg)
           }
         })
         .catch(err => {
-          this.$message.error('请求出错了：' + err.message)
+          this.$message.error('Error:' + err.message)
         })
     })
   }

@@ -36,30 +36,30 @@ export default class extends Vue {
   get changedOrderList() {
     return [
       {
-        label: '全部订单',
+        label: 'All orders',
         value: 0
       },
       {
-        label: '待接单',
+        label: 'To be accepted',
         value: 2,
         num: this.orderStatics.toBeConfirmed
       },
       {
-        label: '待派送',
+        label: 'To be delivered',
         value: 3,
         num: this.orderStatics.confirmed
       },
       {
-        label: '派送中',
+        label: 'Delivering',
         value: 4,
         num: this.orderStatics.deliveryInProgress
       },
       {
-        label: '已完成',
+        label: 'Completed',
         value: 5
       },
       {
-        label: '已取消',
+        label: 'Canceled',
         value: 6
       }
     ]

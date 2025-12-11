@@ -25,14 +25,14 @@
         class="right-el-button"
         v-if="status === 1 && baseData.length > 0"
         @click="handleBatch"
-        >全部已读</el-button
+        >All read</el-button
       >
       <el-button
         icon="iconfont icon-clear"
         class="right-el-button onbutton"
         disabled
         v-else
-        >全部已读</el-button
+        >All read</el-button
       >
     </div>
     <div class="container newBox" :class="{ hContainer: baseData.length }">
@@ -41,7 +41,7 @@
           <!-- 待接单 -->
           <div class="item" v-if="item.type === 1">
             <div class="tit">
-              <span>【待接单】</span>{{ item.arrNew[0]
+              <span>[To be accepted]]</span>{{ item.arrNew[0]
               }}<span class="fontOrderTip" @click="handleSetStatus(item.id)">
                 <router-link :to="'/order?status=' + 2">{{
                   item.arrNew[1]
@@ -52,7 +52,7 @@
           </div>
           <div class="item" v-if="item.type === 2">
             <div class="tit">
-              <i>急</i><span>【待接单】</span>{{ item.arrNew[0]
+              <i>Urgent</i><span>[To be accepted]</span>{{ item.arrNew[0]
               }}<span class="fontOrderTip" @click="handleSetStatus(item.id)"
                 ><router-link :to="'/order?status=' + 2">{{
                   item.arrNew[1]
@@ -65,7 +65,7 @@
           <!-- 待派送 -->
           <div class="item" v-if="item.type === 3">
             <div class="tit">
-              <span>【待派送】</span>{{ item.arrNew[0]
+              <span> [To be delivered] </span>{{ item.arrNew[0]
               }}<span class="fontOrderTip" @click="handleSetStatus(item.id)"
                 ><router-link :to="'/order?status=' + 2">{{
                   item.arrNew[1]
@@ -84,7 +84,7 @@
           >
             <div :class="isActive ? 'titAlready' : ''">
               <div class="tit">
-                <span>【催单】</span>{{ item.arrNew[0] }}
+                <span>[Expedite]]</span>{{ item.arrNew[0] }}
                 <!-- <span
                   class="fontOrderTip"
                   >去处理</span
@@ -94,9 +94,9 @@
               <div v-if="shopShow && showIndex === index" class="orderInfo">
                 <p>
                   <span
-                    ><label>下单时间：</label>{{ item.details.orderTime }}</span
+                    ><label>Order time:</label>{{ item.details.orderTime }}</span
                   ><span
-                    ><label>预计送达时间：</label
+                    ><label>Estimated delivery time:</label
                     >{{ item.details.estimatedDeliveryTime }}</span
                   >
                 </p>
@@ -107,7 +107,7 @@
                 </p>
                 <p>
                   <span
-                    ><label>菜品：</label>{{ item.details.orderDishes }}</span
+                    ><label>Dishes:</label>{{ item.details.orderDishes }}</span
                   >
                 </p>
               </div>
@@ -231,12 +231,12 @@ export default class extends Vue {
   get tabList() {
     return [
       {
-        label: '未读',
+        label: 'Unread',
         value: 1,
         // num: this.ountUnread,
       },
       {
-        label: '已读',
+        label: 'Read',
         value: 2,
         // num: 0,
       },

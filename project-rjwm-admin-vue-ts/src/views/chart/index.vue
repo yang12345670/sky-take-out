@@ -2,71 +2,65 @@
   <div class="dashboard-container">
     <HeadLable :but-list="true">
       <div class="headBut">
-        <span :class="{ act: act === 'day' }" @click="dateAct('day')"
-          >日报</span
-        >
-        <span :class="{ act: act === 'week' }" @click="dateAct('week')"
-          >周报</span
-        >
-        <span :class="{ act: act === 'mouth' }" @click="dateAct('mouth')"
-          >月报</span
-        >
+        <span :class="{ act: act === 'day' }" @click="dateAct('day')">Daily report</span>
+        <span :class="{ act: act === 'week' }" @click="dateAct('week')">Weekly report</span>
+        <span :class="{ act: act === 'mouth' }" @click="dateAct('mouth')">Monthly report</span>
       </div>
     </HeadLable>
     <div class="topLable">
       <div class="tit">
-        <span v-if="act === 'day'">统计时间：00：00 - 24：00</span>
+        <span v-if="act === 'day'">Time range:00:00 - 24:00</span>
         <span v-if="act === 'week'"
-          >统计时间：{{ stateTime }} -{{ endTime }}</span
+          >Time range:{{ stateTime }} -{{ endTime }}</span
         >
         <span v-if="act === 'mouth'"
-          >统计时间：{{ stateTime }} -{{ endTime }}</span
+          >Time range:{{ stateTime }} -{{ endTime }}</span
         >
       </div>
       <div v-if="act === 'day'" class="dataSelect">
         <div>
-          <span @click="checkaffterDate('day', 'before')">前一天</span>
+          <span @click="checkaffterDate('day', 'before')">1 day before</span>
           <el-date-picker
             v-model="dataTime"
             size="mini"
             type="date"
-            placeholder="选择日期"
+            placeholder="Please select date"
             value-format="yyyy-MM-dd"
             :clearable="false"
             @change="changeDate('day')"
           />
-          <span @click="checkaffterDate('day', 'after')">后一天</span>
+          <span @click="checkaffterDate('day', 'after')">1 day after</span>
         </div>
         <div><span class="but" @click="init()">查看今日数据</span></div>
       </div>
       <div v-if="act === 'week'" class="dataSelect">
         <div>
-          <span @click="checkaffterDate('week', 'before')">前一周</span>
+          <span @click="checkaffterDate('week', 'before')">1 week before</span>
           <el-date-picker
             v-model="dataTime"
             size="mini"
             type="week"
-            format="yyyy 第 WW 周"
+            format="yyyy Week WW "
             value-format="yyyy-MM-dd"
-            placeholder="选择周"
+            placeholder="Please select week"
             :clearable="false"
             @change="changeDate('week')"
           />
-          <span @click="checkaffterDate('week', 'after')">后一周</span>
+          <span @click="checkaffterDate('week', 'after')">1 week after</span>
         </div>
         <div>
-          <span class="but" @click="dateAct('week')">查看本周数据</span>
+          <span class="but" @click="dateAct('week')">Check this week's data</span>
         </div>
       </div>
       <div v-if="act === 'mouth'" class="dataSelect">
         <div>
-          <span @click="checkaffterDate('mouth', 'before')">前一月</span>
+          <span @click="checkaffterDate('mouth', 'before')">1 month before</span>
           <el-date-picker
             v-model="dataTime"
             size="mini"
             type="month"
             value-format="yyyy-MM-dd"
-            placeholder="选择月"
+            placeholder="Please select month"
             :clearable="false"
             @change="changeDate('mouth')"
           />
@@ -446,8 +440,8 @@ export default class extends Vue {
           data &&
             data.length > 0 &&
             data.forEach((item: any) => {
-              ;(charts.legendData as Array<string>).push(item.name as string)
-              ;(charts.selected as any)[item.name] = true
+              (charts.legendData as Array<string>).push(item.name as string);
+              (charts.selected as any)[item.name] = true;
             })
           this.chartDataC = charts
         } else {
@@ -455,7 +449,7 @@ export default class extends Vue {
         }
       })
       .catch((err) => {
-        this.$message.error('请求出错了：' + err.message)
+        this.$message.error('Error:' + err.message)
       })
   }
   // 支付类型数据汇总 - 店内收款构成 - 当日
@@ -481,8 +475,8 @@ export default class extends Vue {
           data &&
             data.length > 0 &&
             data.forEach((item: any) => {
-              ;(charts.legendData as Array<string>).push(item.name as string)
-              ;(charts.selected as any)[item.name] = true
+              (charts.legendData as Array<string>).push(item.name as string);
+              (charts.selected as any)[item.name] = true;
             })
           this.chartDataD = charts
         } else {
@@ -631,8 +625,8 @@ export default class extends Vue {
           data &&
             data.length > 0 &&
             data.forEach((item: any) => {
-              ;(charts.legendData as Array<string>).push(item.name as string)
-              ;(charts.selected as any)[item.name] = true
+              (charts.legendData as Array<string>).push(item.name as string);
+              (charts.selected as any)[item.name] = true;
             })
           this.chartDataD = charts
         } else {
@@ -640,7 +634,7 @@ export default class extends Vue {
         }
       })
       .catch((err) => {
-        this.$message.error('请求出错了：' + err.message)
+        this.$message.error('Error:' + err.message)
       })
   }
 
@@ -670,8 +664,8 @@ export default class extends Vue {
           }
           data.length > 0 &&
             data.forEach((item: any) => {
-              ;(charts.legendData as Array<string>).push(item.name as string)
-              ;(charts.selected as any)[item.name] = true
+              (charts.legendData as Array<string>).push(item.name as string);
+              (charts.selected as any)[item.name] = true;
             })
           this.chartDataC = charts
         } else {
